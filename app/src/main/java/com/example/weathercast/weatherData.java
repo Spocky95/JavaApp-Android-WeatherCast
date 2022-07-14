@@ -41,34 +41,39 @@ public class weatherData {
     }
 
 
+
+
     private static String updateWeatherIcon(int condition)
     {
 
-        if(condition>=0 && condition<=300)
+        if(condition>=200 && condition<=232)
         {
-            return "cloudy";
+            return "thunderstorm"; /* Thunderstorm */
         }
-        else if(condition>=300 && condition<=500)
+        else if(condition>=300 && condition<=321)
         {
-            return "cloudy";
+            return "drizzle"; /* Drizzle */
         }
-        else if(condition>=500 && condition<=600)
+        else if(condition>=500 && condition<=531)
         {
-            return "cloudy";
+            return "rain"; /* Rain */
         }
-        else if(condition>=600 && condition<=700)
+        else if(condition>=600 && condition<=622)
         {
-            return "cloudy";
+            return "snow"; /* Snow */
         }
-        else if(condition>=700 && condition<=800)
+        else if(condition>=701 && condition<=781)
         {
-            return "cloudy";
+            return "atmosphere"; /* Atmosphere */
         }
-        else if(condition>=800 && condition<=1000)
+        else if(condition>=800 && condition<=800)
         {
-            return "cloudy";
+            return "clear"; /* Clear */
         }
-
+        else if(condition>=801 && condition<=804)
+        {
+            return "clouds"; /* Clouds */
+        }
         return "anything";
     };
 
