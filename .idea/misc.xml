@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/git/WeatherCast/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2495" />
         <entry key="..\:/git/WeatherCast/app/src/main/res/drawable/buttonback.xml" value="0.366" />
+        <entry key="..\:/git/WeatherCast/app/src/main/res/drawable/buttondesign.xml" value="0.2495" />
         <entry key="..\:/git/WeatherCast/app/src/main/res/drawable/edittextdesign.xml" value="0.2525" />
-        <entry key="..\:/git/WeatherCast/app/src/main/res/layout/activity_city_finder.xml" value="0.33" />
+        <entry key="..\:/git/WeatherCast/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2495" />
+        <entry key="..\:/git/WeatherCast/app/src/main/res/layout/activity_city_finder.xml" value="0.1" />
         <entry key="..\:/git/WeatherCast/app/src/main/res/layout/activity_main.xml" value="0.218" />
       </map>
     </option>

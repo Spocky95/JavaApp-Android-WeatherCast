@@ -130,6 +130,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProviderDisabled(@NonNull String provider) {
                 LocationListener.super.onProviderDisabled(provider);
+                Toast.makeText(MainActivity.this,"włącz GPS",Toast.LENGTH_SHORT).show();
+
             }
 
 

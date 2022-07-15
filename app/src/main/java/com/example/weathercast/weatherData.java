@@ -8,6 +8,8 @@ public class weatherData {
 
     private String mTemperature,mWeatherIcon,mCity,mWeatherType;
 
+    private String mWind,mHumidity,mUV;
+
     private int mContition;
 
 
@@ -21,6 +23,13 @@ public class weatherData {
             weatherD.mContition = jsonObject.getJSONArray("weather").getJSONObject(0).getInt("id");
             weatherD.mWeatherType = jsonObject.getJSONArray("weather").getJSONObject(0).getString("main");
 
+            /*Wind,Humidity,UV*/
+
+
+
+
+
+            /*Wind,Moist,UV*/
             weatherD.mWeatherIcon = updateWeatherIcon(weatherD.mContition);
 
             //zaokraglamy wynik w °F na °C
