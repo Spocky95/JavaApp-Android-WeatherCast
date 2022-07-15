@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        String Location_Provider = LocationManager.GPS_PROVIDER;
         //Deklaracja id dla zmiennych
         nameofCity = findViewById(R.id.cityName);
         weatherState = findViewById(R.id.weatherCondition);
@@ -66,17 +67,53 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     //Pobieramy pogode dla nowej lokacji za pomoca metody
-    @Override
+   /* @Override
     protected void onResume() {
         super.onResume();
         getWeatherForCurrentLocation();
+    } */
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Intent mIntent=getIntent();
+        String city=mIntent.getStringExtra("City");
+
+        if(city!=null)
+        {
+            getWeatherForNewLocation(city);
+        }
+        else
+        {
+            getWeatherForCurrentLocation();
+        }
+    }
+
+    private void getWeatherForNewLocation(String city)
+    {
+        RequestParams params = new RequestParams();
+        params.put("q",city);
+        params.put("appid",API_ID);
+        executeApiQuery(params);;
     }
 
     //Deklarujemy metode użytą powyżej
     private void getWeatherForCurrentLocation() {
         mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         mLocationListner = new LocationListener() {
+
+            @Override
+            public void onProviderEnabled(@NonNull String provider) {
+
+            }
+
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+
+            }
+
             @Override
             public void onLocationChanged(@NonNull Location location) {
 
@@ -88,11 +125,6 @@ public class MainActivity extends AppCompatActivity {
                 params.put("lon",Longitude);
                 params.put("appid",API_ID);
                 executeApiQuery(params);
-
-
-
-
-
             }
 
             @Override
@@ -185,7 +217,15 @@ public class MainActivity extends AppCompatActivity {
         if(mLocationManager != null)
         {
             mLocationManager.removeUpdates(mLocationListner);
+
         }
     }
+
+
+
+
+
+
+
 
 }

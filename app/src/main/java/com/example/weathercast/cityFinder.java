@@ -20,12 +20,16 @@ public class cityFinder extends AppCompatActivity {
         final EditText editText=findViewById(R.id.searchCity);
         ImageView backButton=findViewById(R.id.backButton);
 
+
+
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+
+
 
         editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
