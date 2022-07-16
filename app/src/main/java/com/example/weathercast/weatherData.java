@@ -1,5 +1,7 @@
 package com.example.weathercast;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -8,7 +10,7 @@ public class weatherData {
 
     private String mTemperature,mWeatherIcon,mCity,mWeatherType;
 
-    private String mWind,mHumidity,mUV;
+    private String mWind,mHumidity,mPressure;
 
     private int mContition;
 
@@ -21,15 +23,17 @@ public class weatherData {
             weatherData weatherD = new weatherData();
             weatherD.mCity = jsonObject.getString("name");
             weatherD.mContition = jsonObject.getJSONArray("weather").getJSONObject(0).getInt("id");
-            weatherD.mWeatherType = jsonObject.getJSONArray("weather").getJSONObject(0).getString("main");
+            weatherD.mWeatherType = jsonObject.getJSONArray("weather").getJSONObject(0).getString("description");
 
-            /*Wind,Humidity,UV*/
+            /*Wind,Humidity,Pressure*/
+            weatherD.mWind = jsonObject.getJSONObject("wind").getString("speed");
+            weatherD.mHumidity = jsonObject.getJSONObject("main").getString("humidity");
+            weatherD.mPressure = jsonObject.getJSONObject("main").getString("pressure");
+            /*Wind,Moist,Pressure*/
 
 
 
 
-
-            /*Wind,Moist,UV*/
             weatherD.mWeatherIcon = updateWeatherIcon(weatherD.mContition);
 
             //zaokraglamy wynik w °F na °C
@@ -101,4 +105,13 @@ public class weatherData {
     public String getmWeatherType() {
         return mWeatherType;
     }
+
+    //Details
+    public String getmWind() { return "Wind:\n" + mWind + "km/h"; }
+
+    public String getmHumidity() { return "Humidity:\n" + mHumidity + "%"; }
+
+    public String getmPressure() { return "Pressure:\n" + mPressure; }
+
+
 }

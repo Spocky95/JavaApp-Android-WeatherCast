@@ -40,7 +40,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     String Location_Provider = LocationManager.GPS_PROVIDER;
-    TextView nameofCity, weatherState, temperature;
+    TextView nameofCity;
+    TextView weatherState;
+    TextView temperature;
+
+    TextView wind;
+    TextView humidity;
+    TextView pressure;
+
     ImageView mWeatherIcon;
     RelativeLayout mCityFinder;
     LocationManager mLocationManager;
@@ -57,6 +64,12 @@ public class MainActivity extends AppCompatActivity {
         temperature = findViewById(R.id.temperature);
         mWeatherIcon = findViewById(R.id.weatherIcon);
         mCityFinder = findViewById(R.id.cityFinder);
+
+        //Details Section
+        wind = findViewById(R.id.wind);
+        humidity = findViewById(R.id.humidity);
+        pressure = findViewById(R.id.pressure);
+
 
         //Listner do buttona ktory przenosi nas do activity cityFinder
         mCityFinder.setOnClickListener(new View.OnClickListener() {
@@ -200,11 +213,26 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    //zmieniamy tekst pozycji na nowo pobrane
     private void updateUI(weatherData weather){
-        //zmieniamy tekst pozycji na nowo pobrane
+
         temperature.setText(weather.getmTemperature());
         nameofCity.setText(weather.getmCity());
         weatherState.setText(weather.getmWeatherType());
+
+        //Tworzymy temporary Stringa aby przesłać go do metody capitalize ktora zmieni pierwsza litere na dużą
+        String temp;
+        temp = weather.getmWeatherType();
+        weatherState.setText(capitalize(temp));
+
+
+        wind.setText(weather.getmWind());
+        humidity.setText(weather.getmHumidity());
+        pressure.setText(weather.getmPressure());
+
+
+
 
         //pobieramy informacje o sciezce do ikony pogody
         int resourceID=getResources().getIdentifier(weather.getmWeatherIcon(),"drawable",getPackageName());
@@ -212,6 +240,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    public static String capitalize(String str) {
+        if(str == null || str.isEmpty()) {
+            return str;
+        }
+
+        return str.substring(0, 1).toUpperCase() + str.substring(1);
+    }
+
 
     @Override
     protected void onPause() {

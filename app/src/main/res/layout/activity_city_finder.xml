@@ -7,33 +7,14 @@
     tools:context=".cityFinder"
     android:background="@color/teal_700">
 
-    <!-- On Click Button -->
-    <LinearLayout
 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background5"></LinearLayout>
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-
-        <ImageView
-            android:id="@+id/backButton"
-            android:layout_width="50dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:rotation="180"
-            android:src="@drawable/pointericon200"></ImageView>
-    </RelativeLayout>
 
 
     <!-- Text Enter Search City -->
     <EditText
         android:id="@+id/searchCity"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="225dp"
         android:layout_marginRight="30dp"
@@ -43,7 +24,41 @@
         android:imeOptions="actionGo"
         android:inputType="textAutoCorrect"
         android:textColor="@color/black"
-        android:textSize="20sp">
-    </EditText>
+        android:textSize="20sp"></EditText>
+
+
+    <!-- On Click Button -->
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background5"
+        android:gravity="bottom"
+
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            >
+            <!-- Its not going to work because of target layout being outside of linear layout of screen
+             android:layout_below="@id/searchCity"-->
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:rotation="180"
+                android:src="@drawable/pointericon200"
+                android:layout_marginRight="30sp"
+                android:layout_marginBottom="30sp"
+                android:background="@drawable/buttonoutline"
+                ></ImageView>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
 
 </RelativeLayout>
